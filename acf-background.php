@@ -2,11 +2,11 @@
 
 /*
 Plugin Name: Advanced Custom Fields: Background
-Plugin URI: http://reyhoun.com/
-Description: A group of fields for choosing background Image, Color & more.
+Plugin URI: https://github.com/reyhoun/acf-background
+Description: Background field include all background css attribute and compatible with Reyhoun SassWatcher plugin.
 Version: 1.0.0
-Author: Parhum Khoshbakht
-Author URI: http://parhum.net/
+Author: Reyhoun
+Author URI: http://reyhoun.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
