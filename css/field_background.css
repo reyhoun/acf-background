@@ -1,0 +1,22 @@
+.rey-main .rey-container-background .background-position,
+.rey-main .rey-container-background .background-position select,
+.rey-main .rey-container-background .background-attachment,
+.rey-main .rey-container-background .background-attachment select,
+.rey-main .rey-container-background .background-clip,
+.rey-main .rey-container-background .background-clip select,
+.rey-main .rey-container-background .background-origin,
+.rey-main .rey-container-background .background-origin select,
+.rey-main .rey-container-background .background-size,
+.rey-main .rey-container-background .background-size select,
+.rey-main .rey-container-background .background-repeat,
+.rey-main .rey-container-background .background-repeat select {
+  width: 200px !important;
+  margin-right: 10px;
+  margin-bottom: 7px;
+}
+.rey-main .rey-container-background .body-background_previewer {
+  display: block;
+  width: 100%;
+  margin: 5px 0 10px;
+  border: 1px dotted lightgrey;
+}
