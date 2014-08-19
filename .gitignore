@@ -1,6 +1,3 @@
-style.css
-sass/settings/_theme-settings.scss
-
 *.log
 # Windows image file caches
 Thumbs.db
