@@ -270,7 +270,7 @@ class acf_field_background extends acf_field {
                     );
                ?>
                     <select id="<?php print $field['id']; ?>-repeat-select" data-placeholder="<?php print __("Background Repeat","acf"); ?>" name="<?php print $field['name']; ?>[background-repeat]" class="rey-select-item rey-background-input background-repeat <?php print $field['class']; ?>">
-                        <option value=""><?php echo __("Background Repeat","acf"); ?></option>
+                        <option value="repeat"><?php echo __("Background Repeat","acf"); ?></option>
             <?php
                         foreach ($array as $k=>$v) {
             ?>
@@ -291,7 +291,7 @@ class acf_field_background extends acf_field {
                     );
                     
                     echo '<select id="' . $field['id'] . '-clip-select" data-placeholder="' . __("Background Clip","acf") . '" name="' . $field['name'] . '[background-clip]" class="rey-select-item rey-background-input background-clip ' . $field['class'] . '">';
-                        echo '<option value="">' . __("Background Clip","acf") . '</option>';
+                        echo '<option value="border-box">' . __("Background Clip","acf") . '</option>';
                         foreach ($array as $k=>$v) {
                             echo '<option value="' . $k . '" ' . selected($value['background-clip'], $k, false) . '>' . $v . '</option>';
                         }
@@ -307,7 +307,7 @@ class acf_field_background extends acf_field {
                     );
                     echo '<select id="' . $field['id'] . '-origin-select" data-placeholder="' . __("Background Origin","acf") . '" name="' . $field['name'] . '[background-origin]" class="rey-select-item rey-background-input background-origin ' . $field['class'] . '">';
                     
-                    echo '<option value="">' . __("Background Origin","acf") . '</option>';
+                    echo '<option value="padding-box">' . __("Background Origin","acf") . '</option>';
                         foreach ($array as $k => $v) {
                             echo '<option value="' . $k . '" ' . selected($value['background-origin'], $k, false) . '>' . $v . '</option>';
                         }
@@ -323,7 +323,7 @@ class acf_field_background extends acf_field {
 
                     echo '<select id="' . $field['id'] . '-size-select" data-placeholder="' . __( 'Background Size', 'acf' ) . '" name="' . $field['name'] . '[background-size]' . '" class="rey-select-item rey-background-input background-size ' . $field['class'] . '">';
                     
-                    echo '<option value="">' . __("Background Size","acf") . '</option>';
+                    echo '<option value="auto">' . __("Background Size","acf") . '</option>';
                         foreach ($array as $k => $v) {
                             echo '<option value="' . $k . '"' . selected($value['background-size'], $k, false) . '>' . $v . '</option>';
                         }
@@ -338,7 +338,7 @@ class acf_field_background extends acf_field {
                         'inherit'	=> 'Inherit',
                     );
                     echo '<select id="'.$field['id'].'-attachment-select" data-placeholder="' . __( 'Background Attachment', 'acf' ) . '" name="' . $field['name'] . '[background-attachment]' . '" class="rey-select-item rey-background-input background-attachment '.$field['class'].'">';
-                    echo '<option value="">' . __("Background Attachment","acf") . '</option>';
+                    echo '<option value="scroll">' . __("Background Attachment","acf") . '</option>';
 
                         foreach ($array as $k=>$v) {
                             echo '<option value="'. $k .'"'.selected($value['background-attachment'], $k, false).'>'. $v .'</option>';
@@ -360,7 +360,7 @@ class acf_field_background extends acf_field {
                         'inherit' 		=> 'Inherit',
                     );
                     echo '<select id="'.$field['id'].'-position-select" data-placeholder="' . __( 'Background Position', 'acf' ) . '" name="' . $field['name'] . '[background-position]' . '" class="rey-select-item rey-background-input background-position '.$field['class'].'">';
-                        echo '<option value="">' . __("Background Position","acf") . '</option>';
+                        echo '<option value="0 0">' . __("Background Position","acf") . '</option>';
 
                         foreach ($array as $k=>$v) {
                             echo '<option value="'. $k .'"'.selected($value['background-position'], $k, false).'>'. $v .'</option>';
