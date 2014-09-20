@@ -138,6 +138,8 @@
 			selector.find('.upload-thumbnail').val(thumbSrc);
 			if ( !selector.find('.upload').hasClass('noPreview') ) {
 				selector.find('.screenshot').empty().hide().append('<img class="rey-option-image" src="' + thumbSrc + '">').slideDown('fast');
+				selector.find('.screenshot2').css("background-image" , "url(" + attachment.attributes.url + ")");
+
 			}
 			//selector.find('.media_upload_button').unbind();
 			selector.find('.remove-image').removeClass('hide');//show "Remove" button
@@ -156,6 +158,7 @@
 		if (!selector.find('.remove-image').addClass('hide')) {
 			return;
 		}
+		selector.find('.screenshot2').css("background-image" , "");
 		selector.find('.remove-image').addClass('hide');//hide "Remove" button
 		selector.find('.upload').val('');
 		selector.find('.upload-id').val('');
