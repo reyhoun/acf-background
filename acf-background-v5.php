@@ -62,7 +62,6 @@ class acf_field_background extends acf_field {
             'background__origin'    => 'padding-box',
             'background__color'     => '',
             'preview-height'        =>  200,
-            'preview-width'         =>  100,
             'background_repeat'     => array(
                                             'no-repeat' => 'No Repeat',
                                             'repeat'    => 'Repeat All',
@@ -340,12 +339,6 @@ class acf_field_background extends acf_field {
             'prepend'       => 'px',
         ));
 
-         acf_render_field_setting( $field, array(
-            'label'         => __('Preview width','acf-background'),
-            'type'          => 'number',
-            'name'          => 'preview-width',
-            'prepend'       => 'px',
-        ));
 
     }
     
@@ -382,7 +375,6 @@ class acf_field_background extends acf_field {
             $field['value']['background-image']         =  '';
             $field['value']['media']['thumbnail']       =  '';
             $field['value']['media']['height']          =  $field['preview-height'];
-            $field['value']['media']['width']           =  $field['preview-width'];
             $field['value']['media']['id']              =  '';
         }
 
