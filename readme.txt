@@ -7,17 +7,14 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-DESCRIPTION
-
-== Description ==
-
-EXTENDED_DESCRIPTION
+Background field include all background css attribute and compatible with Reyhoun SassWatcher plugin.
 
 = Compatibility =
 
 This ACF field type is compatible with:
 * ACF 5
 * ACF 4
+* Reyhoun SassWatcher
 
 == Installation ==
 
@@ -26,7 +23,22 @@ This ACF field type is compatible with:
 3. Create a new field via ACF and select the Background type
 4. Please refer to the description for more info regarding the field type settings
 
+== Subfields ==
+* Repeat
+* Attachment
+* Size
+* Position
+* Clip
+* Origin
+* Color Picker
+* Upload Image
+* External Image URL
+
+
 == Changelog ==
+
+= 1.2.0 =
+* Add: Style for display fields
 
 = 1.1.1 =
 * Bug fix Preview JS.

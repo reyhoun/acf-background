@@ -19,7 +19,6 @@
 		// Remove the image button
 		$('.rey-container-background .remove-image, .rey-container-background .remove-file .wp-picker-container').unbind('click').on('click', function(e) {
 			$.reyBackground.removeImage( $(this).parents('.rey-container-background') );
-			$.reyBackground.addcolor( $(this) );
 			$.reyBackground.preview($(this));
 			return false;
 		});
@@ -37,15 +36,6 @@
 		
 
     };
-
-
- //    $.reyBackground.addcolor = function(selector){
-	// 	selector.find('.wp-color-result').mousedown(function() {
-	// 	  alert( selector.find('.wp-color-result').val());
-	// 	  alert('d');
-	// 	  // console.log($.reyBackground);
-	// 	});
-	// }
 
     // Update the background preview
     $.reyBackground.preview = function(selector) {
@@ -147,7 +137,7 @@
 			}
 			selector.find('.upload-thumbnail').val(thumbSrc);
 			if ( !selector.find('.upload').hasClass('noPreview') ) {
-				selector.find('.screenshot').empty().hide().append('<img class="rey-option-image" src="' + thumbSrc + '">').slideDown('fast');
+				selector.find('.screenshot').empty().hide().append('<img class="rey-option-image" src="' + thumbSrc + '">').animate({width:'toggle'}, 150);
 				selector.find('.screenshot2').css("background-image" , "url(" + attachment.attributes.url + ")");
 
 				// alert(attachment.attributes.url);
@@ -155,7 +145,11 @@
 			}
 			//selector.find('.media_upload_button').unbind();
 			selector.find('.remove-image').removeClass('hide');//show "Remove" button
-			selector.find('.rey-background-input-properties').slideDown();
+			
+			// Aniamte for decrease .acf-background-uplaod-fields field width
+			$('.acf-background-uplaod-fields').css('width', 'calc(100% - 165px)');
+
+			selector.find('.rey-background-input-properties').animate({width:'toggle'}, 150);
 			$.reyBackground.preview(selector.find('.upload'));
 		});
 
@@ -172,9 +166,8 @@
 		}
 		//remove 
 		selector.find('.screenshot2').css("background-image" , "");
+		selector.find('.remove-image').addClass('hide'); //hide "Remove" button
 
-
-		selector.find('.remove-image').addClass('hide');//hide "Remove" button
 		selector.find('.upload').val('');
 		selector.find('.upload-id').val('');
 		selector.find('.upload-height').val('');
@@ -184,7 +177,9 @@
 		var screenshot = selector.find('.screenshot');
 		
 		// Hide the screenshot
-		screenshot.slideUp();
+		screenshot.animate({width:'toggle'}, 150);
+		
+		$('.acf-background-uplaod-fields').animate({width: "100%"});
 
 		selector.find('.remove-file').unbind();
 		// We don't display the upload button if .upload-notice is present

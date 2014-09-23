@@ -20,3 +20,49 @@
   margin: 5px 0 10px;
   border: 1px dotted lightgrey;
 }
+
+.acf-background-subfield {
+	float: left;
+	width: 33%;
+}
+.acf-background-field-label {
+	font-weight: bold;
+	line-height: 250%;
+}
+.acf-background-color .wp-picker-container {
+	display: block;
+}
+.acf-background-subfield.acf-background-image {
+	width: 60%;
+}
+.acf-background-uplaod-fields {
+	float: right;
+	-webkit-transition: color 0.5s linear 0;
+	-moz-transition:    color 0.5s linear 0;
+	transition:         color 0.5s linear 0;
+	transition:         color 0.5s linear 0;
+}
+.acf-background-thumbnail {
+	float: left;
+}
+.acf-background-subfield-label {
+	margin-bottom: 3px;
+	display: block;
+}
+.acf-background-image .acf-background-img-url .rey-background-input {
+	margin-bottom: 5px;
+}
+.upload_button_div .button {
+	margin-right: 5px;
+}
+.rey-option-image {
+	background: #eee;
+	padding: 3px;
+	border: solid 1px #ccc;
+	border-radius: 5px;
+}
+.acf-background-preview-live {
+	border: solid 1px #ddd;
+	border-radius: 3px;
+	background: #fbfbfb;
+}

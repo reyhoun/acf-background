@@ -392,173 +392,188 @@ class acf_field_background extends acf_field {
         ?>
         <div class="rey-main">
             <div class="rey-container-background" id="container-background">
+                <div class="clearfix">
+                    <?php
+                    if ($field['background-repeat'] == 1):
+                        $array = $field['background_repeat'];
+                    ?>
+                        <div class="acf-background-subfield acf-background-repeat">
+                            <label class="acf-background-field-label" for="<?php print $field['id']; ?>-repeat-select"><?php _e("Background Repeat", "acf-background"); ?></label>
+                            <select id="<?php print $field['id']; ?>-repeat-select" data-placeholder="<?php print __("Background Repeat","acf"); ?>" name="<?php print $field['name']; ?>[background-repeat]" class="rey-select-item rey-background-input background-repeat <?php print $field['class']; ?>">
+                                <option value="repeat"><?php _e("Background Repeat", "acf-background"); ?></option>
+                                <?php foreach ($array as $k=>$v) { ?>
+                                    <option value="<?php print $k; ?>" <?php print selected($value['background-repeat'], $k, false); ?>><?php print $v; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php
+                    if ( $field['background-attachment'] == 1 ) {
+                        $array = $field['background_attachment'];
+
+                        echo '<div class="acf-background-subfield acf-background-attachment">';
+                            echo '<label class="acf-background-field-label" for="' . $field['id'] . '-attachment-select">' . __("Background Attachment", "acf-background") . '</label>';
+                            echo '<select id="'.$field['id'].'-attachment-select" data-placeholder="' . __( 'Background Attachment', 'acf' ) . '" name="' . $field['name'] . '[background-attachment]' . '" class="rey-select-item rey-background-input background-attachment '.$field['class'].'">';
+                            echo '<option value="scroll">' . __("Background Attachment","acf") . '</option>';
+                                foreach ($array as $k=>$v) {
+                                    echo '<option value="'. $k .'"'.selected($value['background-attachment'], $k, false).'>'. $v .'</option>';
+                                }
+                            echo '</select>';
+                        echo '</div>';
+                    }
+
+                    if ($field['background-size'] == 1) {
+                        $array = $field['background_size'];
+
+                        echo '<div class="acf-background-subfield acf-background-size">';
+                            echo '<label class="acf-background-field-label" for="' . $field['id'] . '-size-select">' . __("Background Size", "acf-background") . '</label>';
+                            echo '<select id="' . $field['id'] . '-size-select" data-placeholder="' . __( 'Background Size', 'acf' ) . '" name="' . $field['name'] . '[background-size]' . '" class="rey-select-item rey-background-input background-size ' . $field['class'] . '">';
+                                echo '<option value="auto">' . __("Background Size","acf") . '</option>';
+                                foreach ($array as $k => $v) {
+                                    echo '<option value="' . $k . '"' . selected($value['background-size'], $k, false) . '>' . $v . '</option>';
+                                }
+                            echo '</select>';
+                        echo '</div>';
+                    }
+
+                    if ( $field['background-position'] == 1 ) {
+                        $array = $field['background_position'];
+
+                        echo '<div class="acf-background-subfield acf-background-position">';
+                            echo '<label class="acf-background-field-label" for="' . $field['id'] . '-position-select">' . __("Background Position", "acf-background") . '</label>';
+                            echo '<select id="'.$field['id'].'-position-select" data-placeholder="' . __( 'Background Position', 'acf' ) . '" name="' . $field['name'] . '[background-position]' . '" class="rey-select-item rey-background-input background-position '.$field['class'].'">';
+                                echo '<option value="0 0">' . __("Background Position","acf") . '</option>';
+                                foreach ($array as $k=>$v) {
+                                    echo '<option value="'. $k .'"'.selected($value['background-position'], $k, false).'>'. $v .'</option>';
+                                }
+                            echo '</select>';
+                        echo '</div>';
+                    }
+
+                    if ($field['background-clip'] == 1) {
+                        $array = $field['background_clip'];
+                        
+                        echo '<div class="acf-background-subfield acf-background-clip">';
+                            echo '<label class="acf-background-field-label" for="' . $field['id'] . '-clip-select">' . __("Background Clip", "acf-background") . '</label>';
+                            echo '<select id="' . $field['id'] . '-clip-select" data-placeholder="' . __("Background Clip","acf") . '" name="' . $field['name'] . '[background-clip]" class="rey-select-item rey-background-input background-clip ' . $field['class'] . '">';
+                                echo '<option value="border-box">' . __("Background Clip","acf") . '</option>';
+                                foreach ($array as $k=>$v) {
+                                    echo '<option value="' . $k . '" ' . selected($value['background-clip'], $k, false) . '>' . $v . '</option>';
+                                }
+                            echo '</select>';
+                        echo '</div>';
+                    }
+
+                    if ($field['background-origin'] == 1) {
+                        $array = $field['background_origin'];
+
+                        echo '<div class="acf-background-subfield acf-background-origin">';
+                            echo '<label class="acf-background-field-label" for="' . $field['id'] . '-origin-select">' . __("Background Origin", "acf-background") . '</label>';
+                            echo '<select id="' . $field['id'] . '-origin-select" data-placeholder="' . __("Background Origin","acf") . '" name="' . $field['name'] . '[background-origin]" class="rey-select-item rey-background-input background-origin ' . $field['class'] . '">';
+                                echo '<option value="padding-box">' . __("Background Origin","acf") . '</option>';
+                                foreach ($array as $k => $v) {
+                                    echo '<option value="' . $k . '" ' . selected($value['background-origin'], $k, false) . '>' . $v . '</option>';
+                                }
+                            echo '</select>';
+                        echo '</div>';
+                    }
+                    ?>
+
+                    <?php if ($field['background-color'] == 1): ?>
+                        <div class="acf-background-subfield acf-background-color">
+                            <label class="acf-background-field-label" for="<?php print $field['id']; ?>-color"><?php _e("Background Color", "acf-background"); ?></label>
+                            <input data-id="<?php print $field['id']; ?>" name="<?php print $field['name']; ?>[background-color]" id="<?php print $field['id']; ?>-color" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['background-color']; ?>" data-default-color="#ffffff" />
+                        </div>
+                    <?php endif; ?>
+
+                    <?php
+                    if ($field['background-image'] == 1) {
+                        echo '<div class="acf-background-subfield acf-background-image">';
+                            echo '<label class="acf-background-field-label" for="' . $field['name'] . '[' . $field['id'] . '][background-image]">' . __("Background Image", "acf-background") . '</label>';
+
+                            if( empty( $value['background-image'] ) && !empty( $value['media']['id'] ) ) {
+                                $img = wp_get_attachment_image_src( $value['media']['id'], 'full' );
+                                $value['background-image'] = $img[0];
+                                $value['media']['width'] = $img[1];
+                                $value['media']['height'] = $img[2];
+                            }
+
+                            $hide = 'hide ';
+
+                            if( (isset( $field['preview-media'] ) && $field['preview-media'] == 0) ) {
+                                $field['class'] .= " noPreview";
+                            }
+
+                            if( ( !empty( $field['background-image'] ) && $field['background-image'] == 1 ) || isset( $field['preview'] ) && $field['preview'] == 0 ) {
+                                $hide = '';
+                            }   
+
+                            $placeholder = isset($field['placeholder']) ? $field['placeholder'] : __('No media selected','acf');
+
+                            //Preview
+                            $hide                   = '';
+                            $none                   = 'block';
+                            $width_upload_fields    = 'calc(100% - 165px)';
+
+                            if( ($field['preview-media'] == 1 && $field['preview-media'] == 0) || ($value['background-image'] == '') ) {
+                                $hide                   = 'hide ';
+                                $none                   = 'none';
+                                $width_upload_fields    = '100%';
+                            }
+
+                            echo '<div class="clearfix">';
+                                echo '<div class="acf-background-uplaod-fields" style="width: ' . $width_upload_fields . '">';
+                                    echo '<div class="acf-background-img-url">';
+                                        echo '<label class="acf-background-subfield-label" for="' . $field['name'] . '[' . $field['id'] . '][background-image]">' . __("External image URL:", "acf-background") . '</label>';
+                                        echo '<input placeholder="' . $placeholder .'" type="text" class="rey-background-input ' . $hide . 'upload ' . $field['class'] . '" name="' . $field['name'] . '[background-image]' . '" id="' . $field['name'] . '[' . $field['id'] . '][background-image]" value="' . $value['background-image'] . '" />';
+                                    echo '</div>';
+
+                                    echo '<input type="hidden" class="upload-id ' . $field['class'] . '" name="' . $field['name'] . '[media][id]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][id]" value="' . $value['media']['id'] . '" />';
+                                    echo '<input type="hidden" class="upload-height" name="' . $field['name'] . '[media][height]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][height]" value="' . $value['media']['height'] . '" />';
+                                    echo '<input type="hidden" class="upload-thumbnail" name="' . $field['name'] . '[media][thumbnail]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][thumbnail]" value="' . $value['media']['thumbnail'] . '" />';
+
+                                    if ( $value['media']['thumbnail'] == '' && !empty( $value['background-image'] ) ) { // Just in case
+                                        if ( !empty( $value['media']['id'] ) ) {
+                                            $image = wp_get_attachment_image_src( $value['media']['id'], array(150, 150) );
+                                            $value['media']['thumbnail'] = $image[0];
+                                        } else {
+                                            $value['media']['thumbnail'] = $value['background-image'];    
+                                        }
+                                    }
+
+                                    // Upload controls DIV
+                                    echo '<div class="upload_button_div">';
+                                        // If the user has WP3.5+ show upload/remove button
+                                        echo '<span class="button background_upload_button" id="' . $field['id'] . '-media">' . __( 'Upload', 'acf' ) . '</span>';
+
+                                        $hide = '';
+                                        if( empty( $value['background-image'] ) || $value['background-image'] == '' ) {
+                                            $hide =' hide';
+                                        }
+
+                                        echo '<span class="button remove-image' . $hide . '" id="reset_' . $field['id'] . '" rel="' . $field['id'] . '">' . __( 'Remove', 'acf' ) . '</span>';
+                                    echo '</div>';
+                                echo '</div>';
+
+                                echo '<div class="screenshot acf-background-thumbnail" style="display:' . $none . '">';
+                                    echo '<a class="of-uploaded-image" href="' . $value['background-image'] . '" target="_blank">';
+                                        echo '<img class="rey-option-image" id="image_' . $value['media']['id'] . '" src="' . $value['media']['thumbnail'] . '" alt="" target="_blank" rel="external" />';
+                                    echo '</a>';
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
                 <?php
-                if ($field['background-color'] == 1) {
-                ?>
-                    <input data-id="<?php print $field['id']; ?>" name="<?php print $field['name']; ?>[background-color]" id="<?php print $field['id']; ?>-color" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['background-color']; ?>" data-default-color="#ffffff" />
-
-            <?php
-
-
-                    if ($field['background-repeat'] == 1 OR $field['background-position'] == 1 OR $field['background-attachment'] == 1) {
-                        echo '<br />';
-                    }
-                }
-
-                if ($field['background-repeat'] == 1) {
-                    $array = $field['background_repeat'];
-
-               ?>
-                    <select id="<?php print $field['id']; ?>-repeat-select" data-placeholder="<?php print __("Background Repeat","acf"); ?>" name="<?php print $field['name']; ?>[background-repeat]" class="rey-select-item rey-background-input background-repeat <?php print $field['class']; ?>">
-                        <option value="repeat"><?php echo __("Background Repeat","acf"); ?></option>
-            <?php
-                        foreach ($array as $k=>$v) {
-            ?>
-                            <option value="<?php print $k; ?>" <?php print selected($value['background-repeat'], $k, false); ?>><?php print $v; ?></option>
-            <?php
-                        }
-            ?>
-                    </select>
-            <?php
-                }
-
-                if ($field['background-clip'] == 1) {
-                    $array = $field['background_clip'];
-                    
-                    echo '<select id="' . $field['id'] . '-clip-select" data-placeholder="' . __("Background Clip","acf") . '" name="' . $field['name'] . '[background-clip]" class="rey-select-item rey-background-input background-clip ' . $field['class'] . '">';
-                        echo '<option value="border-box">' . __("Background Clip","acf") . '</option>';
-                        foreach ($array as $k=>$v) {
-                            echo '<option value="' . $k . '" ' . selected($value['background-clip'], $k, false) . '>' . $v . '</option>';
-                        }
-                    echo '</select>';
-                }
-
-                if ($field['background-origin'] == 1) {
-                    $array = $field['background_origin'];
-
-                    echo '<select id="' . $field['id'] . '-origin-select" data-placeholder="' . __("Background Origin","acf") . '" name="' . $field['name'] . '[background-origin]" class="rey-select-item rey-background-input background-origin ' . $field['class'] . '">';
-                    
-                    echo '<option value="padding-box">' . __("Background Origin","acf") . '</option>';
-                        foreach ($array as $k => $v) {
-                            echo '<option value="' . $k . '" ' . selected($value['background-origin'], $k, false) . '>' . $v . '</option>';
-                        }
-                    echo '</select>';
-                }
-
-                if ($field['background-size'] == 1) {
-                    $array = $field['background_size'];
-
-                    echo '<select id="' . $field['id'] . '-size-select" data-placeholder="' . __( 'Background Size', 'acf' ) . '" name="' . $field['name'] . '[background-size]' . '" class="rey-select-item rey-background-input background-size ' . $field['class'] . '">';
-                    
-                    echo '<option value="auto">' . __("Background Size","acf") . '</option>';
-                        foreach ($array as $k => $v) {
-                            echo '<option value="' . $k . '"' . selected($value['background-size'], $k, false) . '>' . $v . '</option>';
-                        }
-                    echo '</select>';
-                }
-
-                if ( $field['background-attachment'] == 1 ) {
-                    $array = $field['background_attachment'];
-
-                    echo '<select id="'.$field['id'].'-attachment-select" data-placeholder="' . __( 'Background Attachment', 'acf' ) . '" name="' . $field['name'] . '[background-attachment]' . '" class="rey-select-item rey-background-input background-attachment '.$field['class'].'">';
-                    echo '<option value="scroll">' . __("Background Attachment","acf") . '</option>';
-
-                        foreach ($array as $k=>$v) {
-                            echo '<option value="'. $k .'"'.selected($value['background-attachment'], $k, false).'>'. $v .'</option>';
-                        }
-                    echo '</select>';
-                }
-
-                if ( $field['background-position'] == 1 ) {
-                    $array = $field['background_position'];
-
-                    echo '<select id="'.$field['id'].'-position-select" data-placeholder="' . __( 'Background Position', 'acf' ) . '" name="' . $field['name'] . '[background-position]' . '" class="rey-select-item rey-background-input background-position '.$field['class'].'">';
-                        echo '<option value="0 0">' . __("Background Position","acf") . '</option>';
-
-                        foreach ($array as $k=>$v) {
-                            echo '<option value="'. $k .'"'.selected($value['background-position'], $k, false).'>'. $v .'</option>';
-                        }
-                    echo '</select>';
-                }
-
-                if ($field['background-image'] == 1) {
-                    echo '<br />';
-
-                    if( empty( $value['background-image'] ) && !empty( $value['media']['id'] ) ) {
-                        $img = wp_get_attachment_image_src( $value['media']['id'], 'full' );
-                        $value['background-image'] = $img[0];
-                        $value['media']['width'] = $img[1];
-                        $value['media']['height'] = $img[2];
-                    }
-
-                    $hide = 'hide ';
-
-                    if( (isset( $field['preview-media'] ) && $field['preview-media'] == 0) ) {
-                        $field['class'] .= " noPreview";
-                    }
-
-                    if( ( !empty( $field['background-image'] ) && $field['background-image'] == 1 ) || isset( $field['preview'] ) && $field['preview'] == 0 ) {
-                        $hide = '';
-                    }   
-
-                    $placeholder = isset($field['placeholder']) ? $field['placeholder'] : __('No media selected','acf');
-
-                    echo '<input placeholder="' . $placeholder .'" type="text" class="rey-background-input ' . $hide . 'upload ' . $field['class'] . '" name="' . $field['name'] . '[background-image]' . '" id="' . $field['name'] . '[' . $field['id'] . '][background-image]" value="' . $value['background-image'] . '" />';
-                    echo '<input type="hidden" class="upload-id ' . $field['class'] . '" name="' . $field['name'] . '[media][id]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][id]" value="' . $value['media']['id'] . '" />';
-                    echo '<input type="hidden" class="upload-height" name="' . $field['name'] . '[media][height]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][height]" value="' . $value['media']['height'] . '" />';
-                    echo '<input type="hidden" class="upload-thumbnail" name="' . $field['name'] . '[media][thumbnail]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][thumbnail]" value="' . $value['media']['thumbnail'] . '" />';
-
-                    //Preview
-                    $hide = '';
-                    $none = '';
-
-                    if( ($field['preview-media'] == 1 && $field['preview-media'] == 0) || ($value['background-image'] == '') ) {
-                        $hide = 'hide ';
-                        $none = 'none';
-                    }
-
-                    if ( $value['media']['thumbnail'] == '' && !empty( $value['background-image'] ) ) { // Just in case
-                        if ( !empty( $value['media']['id'] ) ) {
-                            $image = wp_get_attachment_image_src( $value['media']['id'], array(150, 150) );
-                            $value['media']['thumbnail'] = $image[0];
-                        } else {
-                            $value['media']['thumbnail'] = $value['background-image'];    
-                        }
-                    }
-                    echo '<div class="' . $hide . 'screenshot" style="display:' . $none . '">';
-                    echo '<a class="of-uploaded-image" href="' . $value['background-image'] . '" target="_blank">';
-                    echo '<img class="rey-option-image" id="image_' . $value['media']['id'] . '" src="' . $value['media']['thumbnail'] . '" alt="" target="_blank" rel="external" />';
-                    echo '</a>';
-                    echo '</div>';
-
-                    //Upload controls DIV
-                    echo '<div class="upload_button_div">';
-
-                    //If the user has WP3.5+ show upload/remove button
-                    echo '<span class="button background_upload_button" id="' . $field['id'] . '-media">' . __( 'Upload', 'acf' ) . '</span>';
-
-                    $hide = '';
-                    if( empty( $value['background-image'] ) || $value['background-image'] == '' )
-                        $hide =' hide';
-
-                    echo '<span class="button remove-image' . $hide . '" id="reset_' . $field['id'] . '" rel="' . $field['id'] . '">' . __( 'Remove', 'acf' ) . '</span>';
-
-                    echo '</div>';
-                }
-
                 if ( !isset( $field['preview'] ) || $field['preview'] != 0 ) {
-                    $css = $this -> getCSS($field);
-
-                    // $css = "background-color:" . $value['background-color'] . ";background-repeat:" . $value['background-repeat'] . ";background-clip:" . $value['background-clip'] . ";background-origin:" . $value['background-origin'] . ";background-size:" . $value['background-size'] . ";background-attachment:" . $value['background-attachment'] . ";background-position:" . $value['background-position'] . ";background-image:url('" . $value['background-image'] . "');";
-
-                    if (empty($css)) {
-                        // $css = "display:none;";
-                    }
-                    $css .= 'height: ' . $field['preview-height'] . 'px;';
-                    echo '<div class="screenshot2" id="' . $field['key'] . '-previewer" style="' . $css . '">';
-                    // echo '<p class="clear ' . $field['id'] . '_previewer background-preview" >&nbsp;</p>';
+                    echo '<div class="acf-background-preview">';
+                        echo '<label class="acf-background-field-label">' . __("Background Preview", "acf-background") . '</label>';
+                        $css = $this -> getCSS($field);
+                        $css .= 'height: ' . $field['preview-height'] . 'px;';
+                        echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '"></div>';
                     echo '</div>';
-
                 }
                 ?>
             </div>
