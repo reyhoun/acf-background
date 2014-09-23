@@ -506,7 +506,6 @@ class acf_field_background extends acf_field {
                     echo '<input placeholder="' . $placeholder .'" type="text" class="rey-background-input ' . $hide . 'upload ' . $field['class'] . '" name="' . $field['name'] . '[background-image]' . '" id="' . $field['name'] . '[' . $field['id'] . '][background-image]" value="' . $value['background-image'] . '" />';
                     echo '<input type="hidden" class="upload-id ' . $field['class'] . '" name="' . $field['name'] . '[media][id]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][id]" value="' . $value['media']['id'] . '" />';
                     echo '<input type="hidden" class="upload-height" name="' . $field['name'] . '[media][height]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][height]" value="' . $value['media']['height'] . '" />';
-                    echo '<input type="hidden" class="upload-width" name="' . $field['name'] . '[media][width]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][width]" value="' . $value['media']['width'] . '" />';
                     echo '<input type="hidden" class="upload-thumbnail" name="' . $field['name'] . '[media][thumbnail]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][thumbnail]" value="' . $value['media']['thumbnail'] . '" />';
 
                     //Preview
