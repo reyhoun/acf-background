@@ -571,7 +571,7 @@ class acf_field_background extends acf_field {
 
                 (function($){
 
-
+                    $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
                     $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val())});
                     $("#' . $field['id'] . '-repeat-select").on(function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
                     $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val())});
