@@ -573,8 +573,8 @@ class acf_field_background extends acf_field {
 
                     $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
                     $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val())});
-                    $("#' . $field['id'] . '-repeat-select").on(function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
-                    $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val())});
+                    $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val());});
+                    $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val());});
                     $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});
                     $("#' . $field['id'] . '-size-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-size" , $(this).val())});
                     $("#' . $field['id'] . '-attachment-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-attachment" , $(this).val())});
