@@ -17,8 +17,9 @@
 	*/
     $.reyBackground.init = function(){
 		// Remove the image button
-		$('.rey-container-background .remove-image, .rey-container-background .remove-file').unbind('click').on('click', function(e) {
+		$('.rey-container-background .remove-image, .rey-container-background .remove-file .wp-picker-container').unbind('click').on('click', function(e) {
 			$.reyBackground.removeImage( $(this).parents('.rey-container-background') );
+			$.reyBackground.addcolor( $(this) );
 			$.reyBackground.preview($(this));
 			return false;
 		});
@@ -36,6 +37,15 @@
 		
 
     };
+
+
+ //    $.reyBackground.addcolor = function(selector){
+	// 	selector.find('.wp-color-result').mousedown(function() {
+	// 	  alert( selector.find('.wp-color-result').val());
+	// 	  alert('d');
+	// 	  // console.log($.reyBackground);
+	// 	});
+	// }
 
     // Update the background preview
     $.reyBackground.preview = function(selector) {
@@ -140,6 +150,8 @@
 				selector.find('.screenshot').empty().hide().append('<img class="rey-option-image" src="' + thumbSrc + '">').slideDown('fast');
 				selector.find('.screenshot2').css("background-image" , "url(" + attachment.attributes.url + ")");
 
+				// alert(attachment.attributes.url);
+
 			}
 			//selector.find('.media_upload_button').unbind();
 			selector.find('.remove-image').removeClass('hide');//show "Remove" button
@@ -158,7 +170,10 @@
 		if (!selector.find('.remove-image').addClass('hide')) {
 			return;
 		}
+		//remove 
 		selector.find('.screenshot2').css("background-image" , "");
+
+
 		selector.find('.remove-image').addClass('hide');//hide "Remove" button
 		selector.find('.upload').val('');
 		selector.find('.upload-id').val('');

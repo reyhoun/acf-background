@@ -519,9 +519,11 @@ class acf_field_background extends acf_field {
 
                     //Preview
                     $hide = '';
+                    $none = '';
 
                     if( ($field['preview-media'] == 1 && $field['preview-media'] == 0) || ($value['background-image'] == '') ) {
                         $hide = 'hide ';
+                        $none = 'none';
                     }
 
                     if ( $value['media']['thumbnail'] == '' && !empty( $value['background-image'] ) ) { // Just in case
@@ -532,8 +534,7 @@ class acf_field_background extends acf_field {
                             $value['media']['thumbnail'] = $value['background-image'];    
                         }
                     }
-
-                    echo '<div class="' . $hide . 'screenshot">';
+                    echo '<div class="' . $hide . 'screenshot" style="display:' . $none . '">';
                     echo '<a class="of-uploaded-image" href="' . $value['background-image'] . '" target="_blank">';
                     echo '<img class="rey-option-image" id="image_' . $value['media']['id'] . '" src="' . $value['media']['thumbnail'] . '" alt="" target="_blank" rel="external" />';
                     echo '</a>';
@@ -557,11 +558,13 @@ class acf_field_background extends acf_field {
                 if ( !isset( $field['preview'] ) || $field['preview'] != 0 ) {
                     $css = $this -> getCSS($field);
 
+                    // $css = "background-color:" . $value['background-color'] . ";background-repeat:" . $value['background-repeat'] . ";background-clip:" . $value['background-clip'] . ";background-origin:" . $value['background-origin'] . ";background-size:" . $value['background-size'] . ";background-attachment:" . $value['background-attachment'] . ";background-position:" . $value['background-position'] . ";background-image:url('" . $value['background-image'] . "');";
+
                     if (empty($css)) {
-                        $css = "display:none;";
+                        // $css = "display:none;";
                     }
                     $css .= 'height: ' . $field['preview-height'] . 'px;';
-                    echo '<div class="' . $hide . 'screenshot2" id="' . $field['key'] . '-previewer" style="' . $css . '">';
+                    echo '<div class="screenshot2" id="' . $field['key'] . '-previewer" style="' . $css . '">';
                     // echo '<p class="clear ' . $field['id'] . '_previewer background-preview" >&nbsp;</p>';
                     echo '</div>';
 
@@ -577,8 +580,8 @@ class acf_field_background extends acf_field {
                 (function($){
 
 
-                    $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-color" , $(this).val())});
-                    $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
+                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val())});
+                    $("#' . $field['id'] . '-repeat-select").on(function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
                     $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val())});
                     $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});
                     $("#' . $field['id'] . '-size-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-size" , $(this).val())});

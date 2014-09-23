@@ -28,6 +28,9 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.1.1 =
+* Bug fix Preview JS.
+
 = 1.1.0 =
 * Add default value.
 * Bug fix Preview JS.
