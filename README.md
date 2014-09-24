@@ -46,6 +46,9 @@ This ACF field type is compatible with:
 
 ### Changelog
 
+## 1.2.1
+* Bug fix: remove button
+
 ## 1.2.0
 * Add: Style for display fields
 

@@ -1,6 +1,8 @@
 /* global rey_change, wp */
 
 (function($){
+
+	var remove = 1;
 	"use strict";
     
     $.reyBackground = $.reyBackground || {};
@@ -139,7 +141,7 @@
 			if ( !selector.find('.upload').hasClass('noPreview') ) {
 				selector.find('.screenshot').empty().hide().append('<img class="rey-option-image" src="' + thumbSrc + '">').animate({width:'toggle'}, 150);
 				selector.find('.screenshot2').css("background-image" , "url(" + attachment.attributes.url + ")");
-
+				remove = 1;
 				// alert(attachment.attributes.url);
 
 			}
@@ -177,9 +179,12 @@
 		var screenshot = selector.find('.screenshot');
 		
 		// Hide the screenshot
-		screenshot.animate({width:'toggle'}, 150);
+		if (remove) {
+			screenshot.animate({width:'toggle'}, 150);
+			remove = 0;
+		};
 		
-		$('.acf-background-uplaod-fields').animate({width: "100%"});
+		selector.find('.acf-background-uplaod-fields').animate({width: "100%"});
 
 		selector.find('.remove-file').unbind();
 		// We don't display the upload button if .upload-notice is present

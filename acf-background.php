@@ -4,7 +4,7 @@
 Plugin Name: Advanced Custom Fields: Background
 Plugin URI: https://github.com/reyhoun/acf-background
 Description: Background field include all background css attribute and compatible with Reyhoun SassWatcher plugin.
-Version: 1.2.0
+Version: 1.2.1
 Author: Reyhoun
 Author URI: http://reyhoun.com/
 License: GPLv2 or later
