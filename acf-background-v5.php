@@ -374,7 +374,8 @@ class acf_field_background extends acf_field {
             $field['value']['background-color']         =  $field['background__color'];
             $field['value']['background-image']         =  '';
             $field['value']['media']['thumbnail']       =  '';
-            $field['value']['media']['height']          =  $field['preview-height'];
+            $field['value']['media']['width']           =  0;
+            $field['value']['media']['height']          =  0;
             $field['value']['media']['id']              =  '';
         }
 
@@ -492,11 +493,11 @@ class acf_field_background extends acf_field {
                         echo '<div class="acf-background-subfield acf-background-image">';
                             echo '<label class="acf-background-field-label" for="' . $field['name'] . '[' . $field['id'] . '][background-image]">' . __("Background Image", "acf-background") . '</label>';
 
-                            if( empty( $value['background-image'] ) && !empty( $value['media']['id'] ) ) {
+                            if( !empty( $value['background-image'] ) && !empty( $value['media']['id'] ) ) {
                                 $img = wp_get_attachment_image_src( $value['media']['id'], 'full' );
-                                $value['background-image'] = $img[0];
-                                $value['media']['width'] = $img[1];
-                                $value['media']['height'] = $img[2];
+                                $value['background-image']  = $img[0];
+                                $value['media']['width']    = $img[1];
+                                $value['media']['height']   = $img[2];
                             }
 
                             $hide = 'hide ';
@@ -531,6 +532,7 @@ class acf_field_background extends acf_field {
 
                                     echo '<input type="hidden" class="upload-id ' . $field['class'] . '" name="' . $field['name'] . '[media][id]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][id]" value="' . $value['media']['id'] . '" />';
                                     echo '<input type="hidden" class="upload-height" name="' . $field['name'] . '[media][height]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][height]" value="' . $value['media']['height'] . '" />';
+                                    echo '<input type="hidden" class="upload-width" name="' . $field['name'] . '[media][width]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][width]" value="' . $value['media']['width'] . '" />';
                                     echo '<input type="hidden" class="upload-thumbnail" name="' . $field['name'] . '[media][thumbnail]' . '" id="' . $field['name'] . '[' . $field['id'] . '][media][thumbnail]" value="' . $value['media']['thumbnail'] . '" />';
 
                                     if ( $value['media']['thumbnail'] == '' && !empty( $value['background-image'] ) ) { // Just in case

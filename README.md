@@ -46,6 +46,9 @@ This ACF field type is compatible with:
 
 ### Changelog
 
+## 1.2.2
+* Bug fix: send background image width as a value
+
 ## 1.2.1
 * Bug fix: remove button
 
