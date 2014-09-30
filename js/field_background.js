@@ -180,8 +180,8 @@
 		
 		// Hide the screenshot
 		if (remove) {
-			screenshot.animate({width:'toggle'}, 150);
-			remove = 0;
+			screenshot.animate({width:'toggle'}, 300);
+			remove = 1;
 		};
 		
 		selector.find('.acf-background-uplaod-fields').animate({width: "100%"});

@@ -37,6 +37,9 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.3.0 =
+* add: text color
+
 = 1.2.2 =
 * Bug fix: send background image width as a value
 
