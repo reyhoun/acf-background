@@ -355,7 +355,7 @@ class acf_field_background extends acf_field {
         
         acf_render_field_setting( $field, array(
             'label'         => __('Text Color','acf-background'),
-            'type'          => 'number',
+            'type'          => 'text',
             'name'          => 'text_color',
             'prepend'       => 'hex',
         ));
@@ -608,7 +608,7 @@ class acf_field_background extends acf_field {
                         $css .= 'height: ' . $field['preview-height'] . 'px;';
                         echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '">';
                             if ($field['show_text_color']) {
-                                echo '<p style="color:' . $value['text-color'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
+                                echo '<p id="' . $field['key'] . '-text" style="color:' . $value['text-color'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
                             }
                         echo '</div>';
                     echo '</div>';
@@ -624,7 +624,7 @@ class acf_field_background extends acf_field {
 
                 (function($){
                     $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
-                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("p").css("color" , $("#' . $field['id'] . '-text-color").val());});
+                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-text-color").val());});
                     $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val());});
                     $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val());});
                     $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});
