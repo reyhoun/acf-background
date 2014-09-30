@@ -608,7 +608,7 @@ class acf_field_background extends acf_field {
                         $css .= 'height: ' . $field['preview-height'] . 'px;';
                         echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '">';
                             if ($field['show_text_color']) {
-                                echo '<p id="' . $field['key'] . '-text" style="color:' . $value['text-color'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
+                                echo '<p class="text-color" id="' . $field['key'] . '-text" style="color:' . $value['text-color'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
                             }
                         echo '</div>';
                     echo '</div>';
