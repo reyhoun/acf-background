@@ -394,7 +394,7 @@ class acf_field_background extends acf_field {
             $field['value']['background-position']      =  $field['background__position'];
             $field['value']['background-origin']        =  $field['background__origin'];
             $field['value']['background-color']         =  $field['background__color'];
-            $field['value']['text-color']               =  $field['text_color'];
+            $field['value']['background-text']          =  $field['text_color'];
             $field['value']['background-image']         =  '';
             $field['value']['media']['thumbnail']       =  '';
             $field['value']['media']['width']           =  0;
@@ -514,8 +514,8 @@ class acf_field_background extends acf_field {
 
                     <?php if ($field['show_text_color']): ?>
                         <div class="acf-background-subfield acf-background-color">
-                            <label class="acf-background-field-label" for="<?php print $field['id']; ?>-text-color"><?php _e("Text Color", "acf-background"); ?></label>
-                            <input data-id="<?php print $field['id']; ?>-text" name="<?php print $field['name']; ?>[text-color]" id="<?php print $field['id']; ?>-text-color" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['text-color']; ?>" data-default-color="#ffffff" />
+                            <label class="acf-background-field-label" for="<?php print $field['id']; ?>-background-text"><?php _e("Text Color", "acf-background"); ?></label>
+                            <input data-id="<?php print $field['id']; ?>-text" name="<?php print $field['name']; ?>[background-text]" id="<?php print $field['id']; ?>-background-text" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['background-text']; ?>" data-default-color="#ffffff" />
                         </div>
                     <?php endif; ?>
 
@@ -608,7 +608,7 @@ class acf_field_background extends acf_field {
                         $css .= 'height: ' . $field['preview-height'] . 'px;';
                         echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '">';
                             if ($field['show_text_color']) {
-                                echo '<p class="text-color" id="' . $field['key'] . '-text" style="color:' . $value['text-color'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
+                                echo '<p id="' . $field['key'] . '-text" style="color:' . $value['background-text'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
                             }
                         echo '</div>';
                     echo '</div>';
@@ -624,7 +624,7 @@ class acf_field_background extends acf_field {
 
                 (function($){
                     $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
-                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-text-color").val());});
+                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());});
                     $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val());});
                     $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val());});
                     $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});
@@ -635,11 +635,6 @@ class acf_field_background extends acf_field {
                 })(jQuery);
 
              </script>';
-
-
-    // background-color:#dd3333;background-repeat:repeat;background-clip:border-box;background-origin:padding-box;background-size:auto;background-attachment:scroll;background-position:0 0;
-
-
 
     }
     
