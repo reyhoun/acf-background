@@ -61,7 +61,7 @@ class acf_field_background extends acf_field {
             'background__position'  => 'left top',
             'background__origin'    => 'padding-box',
             'show_text_color'       =>  0,
-            'text_color'            => '',
+            'text_color'            => '#fff',
             'background__color'     => '',
             'preview-height'        => 200,
             'background_repeat'     => array(
@@ -394,6 +394,7 @@ class acf_field_background extends acf_field {
             $field['value']['background-position']      =  $field['background__position'];
             $field['value']['background-origin']        =  $field['background__origin'];
             $field['value']['background-color']         =  $field['background__color'];
+            $field['value']['text-color']               =  $field['text_color'];
             $field['value']['background-image']         =  '';
             $field['value']['media']['thumbnail']       =  '';
             $field['value']['media']['width']           =  0;
