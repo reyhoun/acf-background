@@ -44,53 +44,53 @@ class acf_field_background extends acf_field {
         */
         
         $this->defaults = array(
-            'ext_value'                 => array(),
-            'background-repeat'         =>  1,
-            'background-size'           =>  0,
-            'background-attachment'     =>  0,
-            'background-position'       =>  0,
-            'background-color'          =>  1,
-            'background-image'          =>  1,
-            'background-clip'           =>  0,
-            'background-origin'         =>  0,
-            'preview-media'             =>  1,
-            'preview'                   =>  1,
-            'background__repeat'    => 'repeat',
-            'background__clip'      => 'border-box',
-            'background__size'      => 'auto',
-            'background__attachment'=> 'scroll',
-            'background__position'  => 'left top',
-            'background__origin'    => 'padding-box',
+            'ext_value'  => array(),
+            'show_background_repeat'      =>  1,
+            'show_background_size'        =>  0,
+            'show_background_attachment'  =>  0,
+            'show_background_position'    =>  0,
+            'display_background_color'    =>  1,
+            'show_background_image'       =>  1,
+            'show_background_clip'        =>  0,
+            'show_background_origin'      =>  0,
+            'show_preview_media'          =>  1,
+            'show_preview'                =>  1,
+            'background_repeat'     => 'repeat',
+            'background_clip'      => 'border-box',
+            'background_size'      => 'auto',
+            'background_attachment'=> 'scroll',
+            'background_position'  => 'left top',
+            'background_origin'    => 'padding-box',
             'show_text_color'       =>  0,
             'text_color'            => '#fff',
-            'background__color'     => '',
+            'background_color'     => '',
             'preview-height'        => 200,
-            'background_repeat'     => array(
+            'background_repeat_values'     => array(
                                             'no-repeat' => 'No Repeat',
                                             'repeat'    => 'Repeat All',
                                             'repeat-x'  => 'Repeat Horizontally',
                                             'repeat-y'  => 'Repeat Vertically',
                                             'inherit'   => 'Inherit',
                                         ),
-            'background_clip'       => array(
+            'background_clip_values'       => array(
                                             'border-box'    => 'Border Box',
                                             'padding-box'   => 'Padding Box',
                                             'content-box'   => 'Content Box',
                                             'inherit'       => 'Inherit',
                                         ),
-            'background_size'       => array(
+            'background_size_values'       => array(
                                             'cover'     => 'Cover',
                                             'contain'   => 'Contain',
                                             'inherit'   => 'Inherit',
                                             'auto'      => 'auto'
                                         ),
-            'background_attachment' => array(
+            'background_attachment_values' => array(
                                             'scroll'    => 'Scroll',
                                             'fixed'     => 'Fixed',
                                             'local'     => 'Local',
                                             'inherit'   => 'Inherit',
                                         ),
-            'background_position'   => array(
+            'background_position_values'   => array(
                                             'left top'      => 'Left Top',
                                             'left center'   => 'Left center',
                                             'left bottom'   => 'Left Bottom',
@@ -102,7 +102,7 @@ class acf_field_background extends acf_field {
                                             'right bottom'  => 'Right Bottom',
                                             'inherit'       => 'Inherit',
                                         ),
-            'background_origin'     => array(
+            'background_origin_values'     => array(
                                             'border-box'    => 'Border Box',
                                             'padding-box'   => 'Padding Box',
                                             'content-box'   => 'Content Box',
@@ -155,7 +155,7 @@ class acf_field_background extends acf_field {
         acf_render_field_setting( $field, array(
             'label'         => __('Display Repeat Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-repeat',
+            'name'          => 'show_background_repeat',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -169,8 +169,8 @@ class acf_field_background extends acf_field {
             'type'          => 'select',
             'ui'            => 1,
             'layout'        =>  'horizontal',
-            'name'          => 'background__repeat',
-            'choices'       =>  $field['background_repeat']
+            'name'          => 'background_repeat',
+            'choices'       =>  $field['background_repeat_values']
         ));
         
 
@@ -178,7 +178,7 @@ class acf_field_background extends acf_field {
         acf_render_field_setting( $field, array(
             'label'         => __('Display Clip Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-clip',
+            'name'          => 'show_background_clip',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -191,15 +191,15 @@ class acf_field_background extends acf_field {
             'label'         => __('defaults background Clip','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
-            'name'          => 'background__clip',
+            'name'          => 'background_clip',
             'layout'  =>  'horizontal',
-            'choices' =>  $field['background_clip'],
+            'choices' =>  $field['background_clip_values'],
         ));
 
         acf_render_field_setting( $field, array(
             'label'         => __('Display Size Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-size',
+            'name'          => 'show_background_size',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -212,16 +212,16 @@ class acf_field_background extends acf_field {
             'label'         => __('defaults background Size','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
-            'name'          => 'background__size',
+            'name'          => 'background_size',
             'layout'  =>  'horizontal',
-            'choices' =>  $field['background_size']
+            'choices' =>  $field['background_size_values']
         ));
 
          
         acf_render_field_setting( $field, array(
             'label'         => __('Display Attachment Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-attachment',
+            'name'          => 'show_background_attachment',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -233,16 +233,16 @@ class acf_field_background extends acf_field {
             'label'         => __('defaults background Attachment','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
-            'name'          => 'background__attachment',
+            'name'          => 'background_attachment',
             'layout'  =>  'horizontal',
-            'choices' =>  $field['background_attachment']
+            'choices' =>  $field['background_attachment_values']
         ));
 
         
         acf_render_field_setting( $field, array(
             'label'         => __('Display Position?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-position',
+            'name'          => 'show_background_position',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -254,16 +254,16 @@ class acf_field_background extends acf_field {
             'label'         => __('defaults background Position','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
-            'name'          => 'background__position',
+            'name'          => 'background_position',
             'layout'  =>  'horizontal',
-            'choices' =>  $field['background_position']
+            'choices' =>  $field['background_position_values']
         ));
 
 
         acf_render_field_setting( $field, array(
             'label'         => __('Display Origin Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-origin',
+            'name'          => 'show_background_origin',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -275,28 +275,28 @@ class acf_field_background extends acf_field {
             'label'         => __('defaults background Origin','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
-            'name'          => 'background__origin',
+            'name'          => 'background_origin',
             'layout'  =>  'horizontal',
-            'choices' => $field['background_origin']
+            'choices' => $field['background_origin_values']
         ));
 
 
         acf_render_field_setting( $field, array(
             'label'         => __('Display Color Option','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-color',
+            'name'          => 'display_background_color',
             'layout'  =>  'horizontal',
             'choices' =>  array(
-                2 => __('rgba', 'acf-background'),
-                1 => __('rgb', 'acf-background'),
-                0 => __('dont display', 'acf-background'),
+                2 => __('RGBA', 'acf-background'),
+                1 => __('HEX', 'acf-background'),
+                0 => __('NO', 'acf-background'),
             )
         ));
 
         acf_render_field_setting( $field, array(
             'label'         => __('defaults background Color','acf-background'),
             'type'          => 'text',
-            'name'          => 'background__color',
+            'name'          => 'background_color',
             'layout'  =>  'horizontal',
         ));
 
@@ -306,7 +306,7 @@ class acf_field_background extends acf_field {
         acf_render_field_setting( $field, array(
             'label'         => __('Display Image Option?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'background-image',
+            'name'          => 'show_background_image',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -317,7 +317,7 @@ class acf_field_background extends acf_field {
         acf_render_field_setting( $field, array(
             'label'         => __('Display Preview Media?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'preview-media',
+            'name'          => 'show_preview_media',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -328,7 +328,7 @@ class acf_field_background extends acf_field {
         acf_render_field_setting( $field, array(
             'label'         => __('Display Preview?','acf-background'),
             'type'          => 'radio',
-            'name'          => 'preview',
+            'name'          => 'show_preview',
             'layout'  =>  'horizontal',
             'choices' =>  array(
                 1 => __('Yes', 'acf-background'),
@@ -389,13 +389,13 @@ class acf_field_background extends acf_field {
         if( empty($field['value']) ){
 
             $field['value'][''] = '';
-            $field['value']['background-repeat']        =  $field['background__repeat'];
-            $field['value']['background-clip']          =  $field['background__clip'];
-            $field['value']['background-size']          =  $field['background__size'];
-            $field['value']['background-attachment']    =  $field['background__attachment'];
-            $field['value']['background-position']      =  $field['background__position'];
-            $field['value']['background-origin']        =  $field['background__origin'];
-            $field['value']['background-color']         =  $field['background__color'];
+            $field['value']['background-repeat']        =  $field['background_repeat'];
+            $field['value']['background-clip']          =  $field['background_clip'];
+            $field['value']['background-size']          =  $field['background_size'];
+            $field['value']['background-attachment']    =  $field['background_attachment'];
+            $field['value']['background-position']      =  $field['background_position'];
+            $field['value']['background-origin']        =  $field['background_origin'];
+            $field['value']['background-color']         =  $field['background_color'];
             $field['value']['background-text']          =  $field['text_color'];
             $field['value']['background-image']         =  '';
             $field['value']['media']['thumbnail']       =  '';
@@ -416,7 +416,7 @@ class acf_field_background extends acf_field {
                 $field['ext_value']['rgba']     = '';
 
             } else {
-                if( preg_match("/rgba/", $field['value']['background-color'])) {//XXXX
+                if( preg_match("/^rgba/", $field['value']['background-color'])) {//XXXX
 
                     $rgba = sscanf($field['value']['background-color'], "rgba(%d, %d, %d, %f)");
 
@@ -477,8 +477,8 @@ class acf_field_background extends acf_field {
             <div class="rey-container-background" id="container-background">
                 <div class="clearfix">
                     <?php
-                    if ($field['background-repeat'] == 1):
-                        $array = $field['background_repeat'];
+                    if ($field['show_background_repeat'] == 1):
+                        $array = $field['background_repeat_values'];
                     ?>
                         <div class="acf-background-subfield acf-background-repeat">
                             <label class="acf-background-field-label" for="<?php print $field['id']; ?>-repeat-select"><?php _e("Background Repeat", "acf-background"); ?></label>
@@ -492,8 +492,8 @@ class acf_field_background extends acf_field {
                     <?php endif; ?>
 
                     <?php
-                    if ( $field['background-attachment'] == 1 ) {
-                        $array = $field['background_attachment'];
+                    if ( $field['show_background_attachment'] == 1 ) {
+                        $array = $field['background_attachment_values'];
 
                         echo '<div class="acf-background-subfield acf-background-attachment">';
                             echo '<label class="acf-background-field-label" for="' . $field['id'] . '-attachment-select">' . __("Background Attachment", "acf-background") . '</label>';
@@ -506,8 +506,8 @@ class acf_field_background extends acf_field {
                         echo '</div>';
                     }
 
-                    if ($field['background-size'] == 1) {
-                        $array = $field['background_size'];
+                    if ($field['show_background_size'] == 1) {
+                        $array = $field['background_size_values'];
 
                         echo '<div class="acf-background-subfield acf-background-size">';
                             echo '<label class="acf-background-field-label" for="' . $field['id'] . '-size-select">' . __("Background Size", "acf-background") . '</label>';
@@ -520,8 +520,8 @@ class acf_field_background extends acf_field {
                         echo '</div>';
                     }
 
-                    if ( $field['background-position'] == 1 ) {
-                        $array = $field['background_position'];
+                    if ( $field['show_background_position'] == 1 ) {
+                        $array = $field['background_position_values'];
 
                         echo '<div class="acf-background-subfield acf-background-position">';
                             echo '<label class="acf-background-field-label" for="' . $field['id'] . '-position-select">' . __("Background Position", "acf-background") . '</label>';
@@ -534,8 +534,8 @@ class acf_field_background extends acf_field {
                         echo '</div>';
                     }
 
-                    if ($field['background-clip'] == 1) {
-                        $array = $field['background_clip'];
+                    if ($field['show_background_clip'] == 1) {
+                        $array = $field['background_clip_values'];
                         
                         echo '<div class="acf-background-subfield acf-background-clip">';
                             echo '<label class="acf-background-field-label" for="' . $field['id'] . '-clip-select">' . __("Background Clip", "acf-background") . '</label>';
@@ -548,8 +548,8 @@ class acf_field_background extends acf_field {
                         echo '</div>';
                     }
 
-                    if ($field['background-origin'] == 1) {
-                        $array = $field['background_origin'];
+                    if ($field['show_background_origin'] == 1) {
+                        $array = $field['background_origin_values'];
 
                         echo '<div class="acf-background-subfield acf-background-origin">';
                             echo '<label class="acf-background-field-label" for="' . $field['id'] . '-origin-select">' . __("Background Origin", "acf-background") . '</label>';
@@ -563,16 +563,16 @@ class acf_field_background extends acf_field {
                     }
                     ?>
 
-                    <?php if ($field['background-color'] == 1): ?>
+                    <?php if ($field['display_background_color'] == 1): ?>
                         <div class="acf-background-subfield acf-background-color">
                             <label class="acf-background-field-label" for="<?php print $field['id']; ?>-color"><?php _e("Background Color", "acf-background"); ?></label>
                             <input data-id="<?php print $field['id']; ?>" name="<?php print $field['name']; ?>[background-color]" id="<?php print $field['id']; ?>-color" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['background-color']; ?>" data-default-color="#ffffff" />
                         </div>
                     <?php endif; ?>
 
-                    <?php if ($field['background-color'] == 2){ 
+                    <?php if ($field['display_background_color'] == 2){ 
                         echo '<div class="acf-background-subfield acf-background-color">';
-                            echo '  <label class="acf-background-field-label" for="' . $field['id'] . '-color">' . _e("Background Color", "acf-background") . '</label>';
+                            echo '  <label class="acf-background-field-label" for="' . $field['id'] . '-color">' . __("Background Color", "acf-background") . '</label>';
                             echo '  <div class="toping">
                                         <input name="" type="hidden" id="' . $field['key'] . '-rgba" class="form-control rgba" data-inline="true" value="' . $field['ext_value']['he-op']['hex'] . '" data-opacity="' . $field['ext_value']['he-op']['opacity'] . '">
                                         <input name="" type="hidden" id="' . $field['key'] . '-opacity" value="' . $field['ext_value']['he-op']['opacity'] . '">
@@ -591,7 +591,7 @@ class acf_field_background extends acf_field {
 
 
                     <?php
-                    if ($field['background-image'] == 1) {
+                    if ($field['show_background_image'] == 1) {
                         echo '<div class="acf-background-subfield acf-background-image">';
                             echo '<label class="acf-background-field-label" for="' . $field['name'] . '[' . $field['id'] . '][background-image]">' . __("Background Image", "acf-background") . '</label>';
 
@@ -604,11 +604,11 @@ class acf_field_background extends acf_field {
 
                             $hide = 'hide ';
 
-                            if( (isset( $field['preview-media'] ) && $field['preview-media'] == 0) ) {
+                            if( (isset( $field['show_preview_media'] ) && $field['show_preview_media'] == 0) ) {
                                 $field['class'] .= " noPreview";
                             }
 
-                            if( ( !empty( $field['background-image'] ) && $field['background-image'] == 1 ) || isset( $field['preview'] ) && $field['preview'] == 0 ) {
+                            if( ( !empty( $field['show_background_image'] ) && $field['show_background_image'] == 1 ) || isset( $field['show_preview'] ) && $field['show_preview'] == 0 ) {
                                 $hide = '';
                             }   
 
@@ -619,7 +619,7 @@ class acf_field_background extends acf_field {
                             $none                   = 'block';
                             $width_upload_fields    = 'calc(100% - 165px)';
 
-                            if( ($field['preview-media'] == 1 && $field['preview-media'] == 0) || ($value['background-image'] == '') ) {
+                            if( ($field['show_preview_media'] == 1 && $field['show_preview_media'] == 0) || ($value['background-image'] == '') ) {
                                 $hide                   = 'hide ';
                                 $none                   = 'none';
                                 $width_upload_fields    = '100%';
@@ -671,7 +671,7 @@ class acf_field_background extends acf_field {
                     ?>
                 </div>
                 <?php
-                if ( !isset( $field['preview'] ) || $field['preview'] != 0 ) {
+                if ( !isset( $field['show_preview'] ) || $field['show_preview'] != 0 ) {
                     echo '<div class="acf-background-preview">';
                         echo '<label class="acf-background-field-label">' . __("Background Preview", "acf-background") . '</label>';
                         $css = $this -> getCSS($field);
