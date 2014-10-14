@@ -37,6 +37,9 @@ This ACF field type is compatible with:
 
 == Changelog ==
 
+= 1.4.0 =
+* add: RGBA color
+
 = 1.3.0 =
 * add: text color
 

@@ -44,6 +44,7 @@ class acf_field_background extends acf_field {
         */
         
         $this->defaults = array(
+            'ext_value'                 => array(),
             'background-repeat'         =>  1,
             'background-size'           =>  0,
             'background-attachment'     =>  0,
@@ -281,13 +282,14 @@ class acf_field_background extends acf_field {
 
 
         acf_render_field_setting( $field, array(
-            'label'         => __('Display Color Option?','acf-background'),
+            'label'         => __('Display Color Option','acf-background'),
             'type'          => 'radio',
             'name'          => 'background-color',
             'layout'  =>  'horizontal',
             'choices' =>  array(
-                1 => __('Yes', 'acf-background'),
-                0 => __('No', 'acf-background'),
+                2 => __('rgba', 'acf-background'),
+                1 => __('rgb', 'acf-background'),
+                0 => __('dont display', 'acf-background'),
             )
         ));
 
@@ -406,6 +408,63 @@ class acf_field_background extends acf_field {
 
 
 
+        if( empty($field['value']['background-color']) ){
+
+                $field['ext_value']['he-op']['hex']     = '#000000';
+                $field['ext_value']['he-op']['opacity'] = '0';
+                
+                $field['ext_value']['rgba']     = '';
+
+            } else {
+                if( preg_match("/rgba/", $field['value']['background-color'])) {//XXXX
+
+                    $rgba = sscanf($field['value']['background-color'], "rgba(%d, %d, %d, %f)");
+
+                    $hex = "#";
+                    $hex.= str_pad(dechex($rgba[0]), 2, "0", STR_PAD_LEFT);
+                    $hex.= str_pad(dechex($rgba[1]), 2, "0", STR_PAD_LEFT);
+                    $hex.= str_pad(dechex($rgba[2]), 2, "0", STR_PAD_LEFT);
+
+                    $field['ext_value']['he-op']['hex']     = $hex;
+                    $field['ext_value']['he-op']['opacity'] = $rgba[3];
+                
+                    $field['ext_value']['rgba']     = $field['value']['background-color'];
+
+                } elseif( preg_match("/#/", $field['value']['background-color'])) {
+
+                    $field['ext_value']['he-op']['hex']     = $field['value']['background-color'];
+                    $field['ext_value']['he-op']['opacity'] = '1';
+
+
+                    $hex = preg_replace("/#/", "", $field['value']['background-color']);
+                    $color = array();
+ 
+                    if(strlen($hex) == 3) {
+                        $color['r'] = hexdec(substr($hex, 0, 1) . $r);
+                        $color['g'] = hexdec(substr($hex, 1, 1) . $g);
+                        $color['b'] = hexdec(substr($hex, 2, 1) . $b);
+                    }
+                    else if(strlen($hex) == 6) {
+                        $color['r'] = hexdec(substr($hex, 0, 2));
+                        $color['g'] = hexdec(substr($hex, 2, 2));
+                        $color['b'] = hexdec(substr($hex, 4, 2));
+                    }
+                
+                    $field['ext_value']['rgba']     = 'rgba(' . $color['r'] . ',' . $color['g'] . ',' . $color['b'] . ',1)';
+
+                } else {
+                    $field['ext_value']['he-op']['hex']     = '#000000';
+                    $field['ext_value']['he-op']['opacity'] = '0';
+                    $field['ext_value']['rgba']     = 'Not Valid';
+                }
+            }
+
+
+
+
+
+
+
         /*
         *  Review the data of $field.
         *  This will show what data is available
@@ -510,6 +569,17 @@ class acf_field_background extends acf_field {
                             <input data-id="<?php print $field['id']; ?>" name="<?php print $field['name']; ?>[background-color]" id="<?php print $field['id']; ?>-color" class="rey-color rey-background-input rey-color-init <?php print $field['class']; ?>" type="text" value="<?php print $value['background-color']; ?>" data-default-color="#ffffff" />
                         </div>
                     <?php endif; ?>
+
+                    <?php if ($field['background-color'] == 2){ 
+                        echo '<div class="acf-background-subfield acf-background-color">';
+                            echo '  <label class="acf-background-field-label" for="' . $field['id'] . '-color">' . _e("Background Color", "acf-background") . '</label>';
+                            echo '  <div class="toping">
+                                        <input name="" type="hidden" id="' . $field['key'] . '-rgba" class="form-control rgba" data-inline="true" value="' . $field['ext_value']['he-op']['hex'] . '" data-opacity="' . $field['ext_value']['he-op']['opacity'] . '">
+                                        <input name="" type="hidden" id="' . $field['key'] . '-opacity" value="' . $field['ext_value']['he-op']['opacity'] . '">
+                                        <input name="' . $field['name'] . '[background-color]" id="' . $field['id'] . '-color" value="' . $field['ext_value']['rgba'] . '" class="rgbatext">
+                                    </div>';
+                        echo '</div>';              
+                    } ?>
 
 
                     <?php if ($field['show_text_color']): ?>
@@ -632,6 +702,25 @@ class acf_field_background extends acf_field {
                     $("#' . $field['id'] . '-attachment-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-attachment" , $(this).val())});
                     $("#' . $field['id'] . '-position-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-position" , $(this).val())});
 
+
+                    var colpick = $(".rgba").each( function() {
+                        $(this).minicolors({
+                            defaultValue: "#ff6167",
+                            inline: false,
+
+                            opacity: true,
+                            change: function(hex, opacity) {
+                                if(!hex) return;
+                                text = hex ? hex : "transparent";
+                                if( opacity ) text += ', ' + opacity;
+                                text = jQuery(this).minicolors("rgbaString");
+                                $("#' . $field['id'] . '-color").val(text);
+                                $("#' . $field['key'] . '-opacity").val(opacity);
+                            },
+                        });
+                    });
+
+
                 })(jQuery);
 
              </script>';
@@ -720,6 +809,16 @@ class acf_field_background extends acf_field {
         
         wp_enqueue_media();
         
+    }
+
+    function input_admin_enqueue_scripts() {
+
+        $dir = plugin_dir_url( __FILE__ );
+
+        // register & include JS
+        wp_register_script( 'acf-js-rgba_minicolors', "{$dir}js/jquery.minicolors.min.js" );
+        wp_enqueue_script('acf-js-rgba_minicolors');
+
     }
     
     
