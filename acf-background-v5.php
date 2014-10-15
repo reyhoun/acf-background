@@ -677,6 +677,10 @@ class acf_field_background extends acf_field {
                         $css = $this -> getCSS($field);
                         $css .= 'height: ' . $field['preview-height'] . 'px;';
                         echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '">';
+                            if ($field['display_background_color']==2) {
+                                echo '<div class="acf-background-layer" id="' . $field['key'] . '-layer" style="background-color:' . $value['background-color'] . '"></div>';
+                            }
+
                             if ($field['show_text_color']) {
                                 echo '<p id="' . $field['key'] . '-text" style="color:' . $value['background-text'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
                             }
@@ -694,7 +698,7 @@ class acf_field_background extends acf_field {
 
                 (function($){
                     $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
-                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());});
+                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-layer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());});
                     $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val());});
                     $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val());});
                     $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});

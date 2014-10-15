@@ -65,12 +65,20 @@
 	border: solid 1px #ddd;
 	border-radius: 3px;
 	background: #fbfbfb;
+    position: relative;
 }
 
 .acf-background-preview-live p {
 	font-size: 20px;
 	text-align: center; 
 	margin: 30px;
+    position: relative;
+}
+
+.acf-background-layer{
+    position: absolute;
+    width: 100%;
+    height: inherit;
 }
 
 /*============================================*/
