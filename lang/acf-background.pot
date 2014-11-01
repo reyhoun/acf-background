@@ -1,0 +1,259 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Advanced Custom Fields: Background\n"
+"POT-Creation-Date: 2014-11-01 17:16+0330\n"
+"PO-Revision-Date: 2014-11-01 17:17+0330\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: acf-background-v4.php:23 acf-background-v5.php:32
+msgid "Background"
+msgstr ""
+
+#: acf-background-v4.php:24
+msgid "Design"
+msgstr ""
+
+#: acf-background-v4.php:86
+msgid "Show Background Color?"
+msgstr ""
+
+#: acf-background-v4.php:98 acf-background-v4.php:120
+#: acf-background-v4.php:142 acf-background-v4.php:164
+#: acf-background-v4.php:186 acf-background-v4.php:208
+#: acf-background-v4.php:230 acf-background-v4.php:252
+#: acf-background-v4.php:274 acf-background-v4.php:296
+#: acf-background-v4.php:318 acf-background-v5.php:161
+#: acf-background-v5.php:184 acf-background-v5.php:205
+#: acf-background-v5.php:227 acf-background-v5.php:248
+#: acf-background-v5.php:269 acf-background-v5.php:312
+#: acf-background-v5.php:323 acf-background-v5.php:334
+#: acf-background-v5.php:353
+msgid "Yes"
+msgstr ""
+
+#: acf-background-v4.php:99 acf-background-v4.php:121
+#: acf-background-v4.php:143 acf-background-v4.php:165
+#: acf-background-v4.php:187 acf-background-v4.php:209
+#: acf-background-v4.php:231 acf-background-v4.php:253
+#: acf-background-v4.php:275 acf-background-v4.php:297
+#: acf-background-v4.php:319 acf-background-v5.php:162
+#: acf-background-v5.php:185 acf-background-v5.php:206
+#: acf-background-v5.php:228 acf-background-v5.php:249
+#: acf-background-v5.php:270 acf-background-v5.php:313
+#: acf-background-v5.php:324 acf-background-v5.php:335
+#: acf-background-v5.php:354
+msgid "No"
+msgstr ""
+
+#: acf-background-v4.php:108
+msgid "Show Background Repeat?"
+msgstr ""
+
+#: acf-background-v4.php:130
+msgid "Show Background Size?"
+msgstr ""
+
+#: acf-background-v4.php:152
+msgid "Show Background Attachment?"
+msgstr ""
+
+#: acf-background-v4.php:174
+msgid "Show Background Position?"
+msgstr ""
+
+#: acf-background-v4.php:196
+msgid "Show Background Image?"
+msgstr ""
+
+#: acf-background-v4.php:218
+msgid "Show Background Gradient?"
+msgstr ""
+
+#: acf-background-v4.php:240
+msgid "Show Background Clip?"
+msgstr ""
+
+#: acf-background-v4.php:262
+msgid "Show Background Origin?"
+msgstr ""
+
+#: acf-background-v4.php:284
+msgid "Show Preview?"
+msgstr ""
+
+#: acf-background-v4.php:306
+msgid "Show Preview Media?"
+msgstr ""
+
+#: acf-background-v4.php:328 acf-background-v5.php:340
+msgid "Preview Height"
+msgstr ""
+
+#: acf-background-v4.php:392 acf-background-v4.php:393
+#: acf-background-v5.php:484 acf-background-v5.php:485
+#: acf-background-v5.php:486
+msgid "Background Repeat"
+msgstr ""
+
+#: acf-background-v4.php:413 acf-background-v4.php:414
+#: acf-background-v5.php:541 acf-background-v5.php:542
+#: acf-background-v5.php:543
+msgid "Background Clip"
+msgstr ""
+
+#: acf-background-v4.php:434 acf-background-v4.php:435
+#: acf-background-v5.php:555 acf-background-v5.php:556
+#: acf-background-v5.php:557
+msgid "Background Origin"
+msgstr ""
+
+#: acf-background-v4.php:454 acf-background-v4.php:455
+#: acf-background-v5.php:513 acf-background-v5.php:514
+#: acf-background-v5.php:515
+msgid "Background Size"
+msgstr ""
+
+#: acf-background-v4.php:470 acf-background-v4.php:471
+#: acf-background-v5.php:499 acf-background-v5.php:500
+#: acf-background-v5.php:501
+msgid "Background Attachment"
+msgstr ""
+
+#: acf-background-v4.php:492 acf-background-v4.php:493
+#: acf-background-v5.php:527 acf-background-v5.php:528
+#: acf-background-v5.php:529
+msgid "Background Position"
+msgstr ""
+
+#: acf-background-v4.php:547 acf-background-v5.php:615
+msgid "No media selected"
+msgstr ""
+
+#: acf-background-v4.php:581 acf-background-v5.php:652
+msgid "Upload"
+msgstr ""
+
+#: acf-background-v4.php:587 acf-background-v5.php:659
+msgid "Remove"
+msgstr ""
+
+#: acf-background-v5.php:120
+msgid "Error! Please enter a higher value"
+msgstr ""
+
+#: acf-background-v5.php:156
+msgid "Display Repeat Option?"
+msgstr ""
+
+#: acf-background-v5.php:168
+msgid "defaults background Repeat"
+msgstr ""
+
+#: acf-background-v5.php:179
+msgid "Display Clip Option?"
+msgstr ""
+
+#: acf-background-v5.php:191
+msgid "defaults background Clip"
+msgstr ""
+
+#: acf-background-v5.php:200
+msgid "Display Size Option?"
+msgstr ""
+
+#: acf-background-v5.php:212
+msgid "defaults background Size"
+msgstr ""
+
+#: acf-background-v5.php:222
+msgid "Display Attachment Option?"
+msgstr ""
+
+#: acf-background-v5.php:233
+msgid "defaults background Attachment"
+msgstr ""
+
+#: acf-background-v5.php:243
+msgid "Display Position?"
+msgstr ""
+
+#: acf-background-v5.php:254
+msgid "defaults background Position"
+msgstr ""
+
+#: acf-background-v5.php:264
+msgid "Display Origin Option?"
+msgstr ""
+
+#: acf-background-v5.php:275
+msgid "defaults background Origin"
+msgstr ""
+
+#: acf-background-v5.php:285
+msgid "Display Color Option"
+msgstr ""
+
+#: acf-background-v5.php:290
+msgid "RGBA"
+msgstr ""
+
+#: acf-background-v5.php:291
+msgid "HEX"
+msgstr ""
+
+#: acf-background-v5.php:292
+msgid "NO"
+msgstr ""
+
+#: acf-background-v5.php:297
+msgid "defaults background Color"
+msgstr ""
+
+#: acf-background-v5.php:307
+msgid "Display Image Option?"
+msgstr ""
+
+#: acf-background-v5.php:318
+msgid "Display Preview Media?"
+msgstr ""
+
+#: acf-background-v5.php:329
+msgid "Display Preview?"
+msgstr ""
+
+#: acf-background-v5.php:348
+msgid "Display Text Color ?"
+msgstr ""
+
+#: acf-background-v5.php:359 acf-background-v5.php:587
+msgid "Text Color"
+msgstr ""
+
+#: acf-background-v5.php:568 acf-background-v5.php:575
+msgid "Background Color"
+msgstr ""
+
+#: acf-background-v5.php:596
+msgid "Background Image"
+msgstr ""
+
+#: acf-background-v5.php:631
+msgid "External image URL:"
+msgstr ""
+
+#: acf-background-v5.php:676
+msgid "Background Preview"
+msgstr ""
