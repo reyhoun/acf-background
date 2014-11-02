@@ -62,7 +62,7 @@ class acf_field_background extends acf_field {
             'background_position'  => 'left top',
             'background_origin'    => 'padding-box',
             'show_text_color'       =>  0,
-            'text_color'            => '#fff',
+            'text_color'            => '#000',
             'background_color'     => '',
             'preview-height'        => 200,
             'background_repeat_values'     => array(
@@ -165,7 +165,7 @@ class acf_field_background extends acf_field {
 
 
         acf_render_field_setting( $field, array(
-            'label'         => __('defaults background Repeat','acf-typography'),
+            'label'         => __('defaults background Repeat','acf-background'),
             'type'          => 'select',
             'ui'            => 1,
             'layout'        =>  'horizontal',
@@ -460,7 +460,9 @@ class acf_field_background extends acf_field {
             }
 
 
-
+            echo "<pre>";
+            print_r($field['value']);
+            echo "</pre>";
 
 
 
@@ -1039,31 +1041,41 @@ class acf_field_background extends acf_field {
     *  @return  $valid
     */
     
-    /*
+    
     
     function validate_value( $valid, $value, $field, $input ){
         
-        // Basic usage
-        if( $value < $field['custom_minimum_setting'] )
-        {
-            $valid = false;
+        if ($field['required']) {
+        
+            if (empty($value['background-color']) || empty($value['background-text']) || empty($value['background-image'])) {
+
+                $set = 0;
+                $txt = __('The value is empty!! : ','acf-background');
+            
+                if( empty($value['background-color']) & $field['display_background_color']){
+                    $txt .= __('background color, ','acf-background');
+                    $set = 1;
+                }
+           
+                if( empty($value['background-text']) & $field['show_text_color']){
+                    $txt .= __('background text, ','acf-background');
+                    $set = 1;
+                }
+            
+                if( empty($value['background-image']) & $field['show_background_image']){
+                    $txt .= __('background image, ','acf-background');
+                    $set = 1;
+                }
+                if($set){
+                    $valid = $txt;
+                }
+            }
         }
-        
-        
-        // Advanced usage
-        if( $value < $field['custom_minimum_setting'] )
-        {
-            $valid = __('The value is too little!','acf-background'),
-        }
-        
-        
-        // return
+
         return $valid;
         
     }
-    
-    */
-    
+        
     
     /*
     *  delete_value()
