@@ -460,13 +460,6 @@ class acf_field_background extends acf_field {
             }
 
 
-            echo "<pre>";
-            print_r($field['value']);
-            echo "</pre>";
-
-
-
-
         /*
         *  Review the data of $field.
         *  This will show what data is available
