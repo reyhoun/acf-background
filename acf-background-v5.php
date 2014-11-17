@@ -1040,7 +1040,7 @@ class acf_field_background extends acf_field {
         
         if ($field['required']) {
         
-            if (empty($value['background-color']) || empty($value['background-text']) || empty($value['background-image'])) {
+            if (empty($value['background-color']) || empty($value['background-text']) /*|| empty($value['background-image'])*/) {
 
                 $set = 0;
                 $txt = __('The value is empty!! : ','acf-background');
@@ -1055,10 +1055,10 @@ class acf_field_background extends acf_field {
                     $set = 1;
                 }
             
-                if( empty($value['background-image']) & $field['show_background_image']){
-                    $txt .= __('background image, ','acf-background');
-                    $set = 1;
-                }
+                // if( empty($value['background-image']) & $field['show_background_image']){
+                //     $txt .= __('background image, ','acf-background');
+                //     $set = 1;
+                // }
                 if($set){
                     $valid = $txt;
                 }
