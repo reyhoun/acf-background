@@ -1,15 +1,18 @@
 # Changelog
 
+#### 1.6.0
+* Add required check
+
 #### 1.5.0
 * Compatible with [Github Updater](https://github.com/afragen/github-updater)
-* add language pot file
-* add changelog file
+* Add language pot file
+* Add changelog file
 
 #### 1.4.0
-* add: RGBA color
+* Add: RGBA color
 
 #### 1.3.0
-* add: text color
+* Add: text color
 
 #### 1.2.2
 * Bug fix: send background image width as a value
