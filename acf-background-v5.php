@@ -569,9 +569,10 @@ class acf_field_background extends acf_field {
                         echo '<div class="acf-background-subfield acf-background-color">';
                             echo '  <label class="acf-background-field-label" for="' . $field['id'] . '-color">' . __("Background Color", "acf-background") . '</label>';
                             echo '  <div class="toping">
-                                        <input name="" type="hidden" id="' . $field['key'] . '-rgba" class="form-control rgba" data-inline="true" value="' . $field['ext_value']['he-op']['hex'] . '" data-opacity="' . $field['ext_value']['he-op']['opacity'] . '">
-                                        <input name="" type="hidden" id="' . $field['key'] . '-opacity" value="' . $field['ext_value']['he-op']['opacity'] . '">
+                                        <input name="" type="hidden" id="' . $field['id'] . '-rgba" class="form-control rgba" data-inline="true" value="' . $field['ext_value']['he-op']['hex'] . '" data-opacity="' . $field['ext_value']['he-op']['opacity'] . '">
+                                        <input name="" type="hidden" id="' . $field['id'] . '-opacity" value="' . $field['ext_value']['he-op']['opacity'] . '">
                                         <input name="' . $field['name'] . '[background-color]" id="' . $field['id'] . '-color" value="' . $field['ext_value']['rgba'] . '" class="rgbatext">
+                                        <input type="submit" value="Clear" id="' . $field['key'] . '-clear">
                                     </div>';
                         echo '</div>';              
                     } ?>
@@ -671,13 +672,13 @@ class acf_field_background extends acf_field {
                         echo '<label class="acf-background-field-label">' . __("Background Preview", "acf-background") . '</label>';
                         $css = $this -> getCSS($field);
                         $css .= 'height: ' . $field['preview-height'] . 'px;';
-                        echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['key'] . '-previewer" style="' . $css . '">';
+                        echo '<div class="screenshot2 acf-background-preview-live" id="' . $field['id'] . '-previewer" style="' . $css . '">';
                             if ($field['display_background_color']==2) {
-                                echo '<div class="acf-background-layer" id="' . $field['key'] . '-layer" style="background-color:' . $value['background-color'] . '"></div>';
+                                echo '<div class="acf-background-layer" id="' . $field['id'] . '-layer" style="background-color:' . $value['background-color'] . '"></div>';
                             }
 
                             if ($field['show_text_color']) {
-                                echo '<p id="' . $field['key'] . '-text" style="color:' . $value['background-text'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
+                                echo '<p id="' . $field['id'] . '-text" style="color:' . $value['background-text'] . '"> Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. </p>';
                             }
                         echo '</div>';
                     echo '</div>';
@@ -692,14 +693,14 @@ class acf_field_background extends acf_field {
             echo '<script>
 
                 (function($){
-                    $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val())});
-                    $("body").mouseup(function(){$("#' . $field['key'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-layer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['key'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());});
-                    $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-repeat" , $(this).val());});
-                    $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-clip" , $(this).val());});
-                    $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-origin" , $(this).val())});
-                    $("#' . $field['id'] . '-size-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-size" , $(this).val())});
-                    $("#' . $field['id'] . '-attachment-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-attachment" , $(this).val())});
-                    $("#' . $field['id'] . '-position-select").on("change",function(){$("#' . $field['key'] . '-previewer").css("background-position" , $(this).val())});
+                    $("#' . $field['id'] . '-color").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-repeat" , $(this).val())});
+                    $("body").mouseup(function(){$("#' . $field['id'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-layer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());});
+                    $("#' . $field['id'] . '-repeat-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-repeat" , $(this).val());});
+                    $("#' . $field['id'] . '-clip-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-clip" , $(this).val());});
+                    $("#' . $field['id'] . '-origin-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-origin" , $(this).val())});
+                    $("#' . $field['id'] . '-size-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-size" , $(this).val())});
+                    $("#' . $field['id'] . '-attachment-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-attachment" , $(this).val())});
+                    $("#' . $field['id'] . '-position-select").on("change",function(){$("#' . $field['id'] . '-previewer").css("background-position" , $(this).val())});
 
 
                     var colpick = $(".rgba").each( function() {
@@ -711,14 +712,125 @@ class acf_field_background extends acf_field {
                             change: function(hex, opacity) {
                                 if(!hex) return;
                                 text = hex ? hex : "transparent";
-                                if( opacity ) text += ', ' + opacity;
+                                if( opacity ) text += ", " + opacity;
                                 text = jQuery(this).minicolors("rgbaString");
                                 $("#' . $field['id'] . '-color").val(text);
-                                $("#' . $field['key'] . '-opacity").val(opacity);
+                                $("#' . $field['id'] . '-opacity").val(opacity);
                             },
                         });
                     });
 
+                    console.log($("#' . $field['id'] . '-color").val());
+                        
+// @jgraup:         Adding multiple methods for changing color and opacity with the keyboard.
+
+                    var target = $("#' . $field['id'] . '-rgba.rgba"),
+                    rgbatext = $("#' . $field['id'] . '-color"),
+                    opacity = $("#' . $field['id'] . '-opacity"),
+
+                    // ~ Trigger with "Enter" or "Paste" from Clipboard into rgba textfield.
+                    //
+                    // + NUMBER will set opacity. ex: (0-1 or 1-100)
+                    // + HEX will set color
+                    // + RGBA(r,g,b,a) will set color and opacity
+                    // + RGB(r,g,b) will set color, opacity is set to 1
+                    //
+                    // User value must be formatted;
+                    //
+                    // num:    .4
+                    // num:    99
+                    // hex:    #BADA55
+                    // rgba:   rgba(0,111,222,.5) or (0,111,222,.5)
+                    // rgb:    rgb(0,111,222) or (0,111,222)
+
+                    parseUserInput = function(evt){
+                        var val = rgbatext.val();
+                        if(val === "" || val == undefined)
+                            return; // no joy
+
+
+
+                        if(val.indexOf("#")>-1){
+                            // hex
+                            target.minicolors("value", val);
+                        } else if(val.indexOf("(")>-1){
+                            // rgba / rgb
+                            var _1 = val.indexOf("(")+1,
+                                _2 = val.indexOf(")"),
+                                str = val.slice (_1, _2),
+                                vals = str.split(" ").join("").split(",");
+
+                            if(vals.length < 3)
+                                return; // no joy
+
+                            // rgb acts like hex except alpha turns to 1
+                            var a = vals.length == 4 ? vals[3] : 1,
+                                // r = vals[0],
+                                // g = vals[1],
+                                // b = vals[2],
+                                hex = "#" +
+                                ("0" + parseInt(vals[0],10).toString(16)).slice(-2) +
+                                ("0" + parseInt(vals[1],10).toString(16)).slice(-2) +
+                                ("0" + parseInt(vals[2],10).toString(16)).slice(-2);
+
+                            target.minicolors("value", hex);
+                            target.minicolors("opacity", a);
+                        }
+                        else {
+                            // opacity?
+                            var float = parseFloat(val);
+                            if(!isNaN(float)){
+                                if(float<0){
+                                    // less than 1? sorry.
+                                    float = 0;
+                                }
+                                else if(float>1){
+                                    // greater than 1, then assume 1-100
+                                    float/=100;
+                                }
+                                if(float>1){
+                                    // greater than 1... still? denied.
+                                    float = 1;
+                                }
+
+                                target.minicolors("opacity", float);
+                            }
+                        }
+                    }
+
+                    // Clear (Clear Button)
+                    $("#' . $field['id'] . '-clear").bind("click", function(evt){
+                        // don"t submit the form just yet...
+                        evt.preventDefault();
+
+                        // swatch retains the color value temporarily,
+                        // but let"s make it look clear either way.
+                        target.minicolors("opacity", "0");
+
+                        // this is the data that is saved
+                        rgbatext.val("");
+                        opacity.val("");
+                    });
+
+                    // Enter (Keyboard Input)
+                    rgbatext.on("keypress", function (evt) {
+                        // on "Enter"
+                        if(evt.which == 13) {
+                            evt.preventDefault();
+                            parseUserInput(evt); // magic!
+                            $("#' . $field['id'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-layer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());
+                        }
+                    });
+
+                    // Paste  (Keyboard Input)
+                    rgbatext.on("paste", function (evt) {
+                        alert("d");
+                        // wait for the text after the event
+                        setTimeout(function () {
+                            parseUserInput(evt); // magic!
+                            $("#' . $field['id'] . '-previewer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-layer").css("background-color" , $("#' . $field['id'] . '-color").val());$("#' . $field['id'] . '-text").css("color" , $("#' . $field['id'] . '-background-text").val());
+                        }, 60);
+                    });
 
                 })(jQuery);
 
