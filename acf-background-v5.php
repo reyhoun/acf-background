@@ -797,9 +797,10 @@ class acf_field_background extends acf_field {
                             }
                         }
                     }
+                    
 
                     // Clear (Clear Button)
-                    $("#' . $field['id'] . '-clear").bind("click", function(evt){
+                    $("#' . $field['key'] . '-clear").bind("click", function(evt){
                         // don"t submit the form just yet...
                         evt.preventDefault();
 
