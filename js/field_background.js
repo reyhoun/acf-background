@@ -174,6 +174,7 @@
 		selector.find('.upload-id').val('');
 		selector.find('.upload-height').val('');
 		selector.find('.upload-width').val('');
+		selector.find('.upload-thumbnail').val('');
 		//rey_change( jQuery(selector).find( '.upload-id' ) );
 		selector.find('.rey-background-input-properties').hide();
 		var screenshot = selector.find('.screenshot');
